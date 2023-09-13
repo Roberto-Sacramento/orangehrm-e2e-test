@@ -1,7 +1,7 @@
 pipeline {
    agent any
 
-   tools {nodejs "nodejs 18.17.1"}
+   tools {nodejs "nodejs18.17.1"}
 
    environment {
        CHROME_BIN = '/bin/google-chrome'
@@ -36,4 +36,4 @@ pipeline {
        }
    }
  }
-}
+
