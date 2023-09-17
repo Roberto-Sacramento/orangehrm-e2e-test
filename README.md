@@ -12,7 +12,11 @@
 # ///////////////////////////////////////////////////////////////////////////////////////#
 
 # Installation process steps
+On linux ( debian)
+Install git - sudo apt instal git
+install node - sudo apt install nodejs npm -y   
 
+# ///////////////////////////////
 0 - Conigure git account:
 git config --global user.name "name"    
 git config --global user.email " email account"

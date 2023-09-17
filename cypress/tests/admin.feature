@@ -1,10 +1,10 @@
 Feature: Admin page
 
     Scenario Outline: Searching a user
-        Given I access Admin page
+        Given I accessed Admin page
         When I search a '<userName>'
         Then I should see the employee name
         Examples:
-            | userName | employeeName| 
-            | Admin    | Admin       | 
+            | userName| employeeName| 
+            | Admin   | Admin       | 
     
