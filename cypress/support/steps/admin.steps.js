@@ -1,11 +1,12 @@
 import {Before, DataTable, Given, When, And, Then} from "cypress-cucumber-preprocessor/steps"
-import SidePainelcomponent from "../pages/adminPage.pom";
+import SidePainelcomponent from "../pages/sidePainel.component";
 import AdminPageElements from "../elements/adminElements"
 
 const sidePainelcomponent = new SidePainelcomponent();
 const adminPageElements = new AdminPageElements();
 
-Given('I access Admin page', async () => {
+
+Given('I accessed Admin page', async () => {
     sidePainelcomponent.clickOnAdmin();
 })
 

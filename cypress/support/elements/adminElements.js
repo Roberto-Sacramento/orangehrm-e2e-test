@@ -4,7 +4,6 @@ const conteinerSelector =  '.orangehrm-container'
 
 
 class AdminPageElements{
-    //userNameSelector = () => this.$(userNameSelector);
 
 
     searchUserName(){
@@ -12,7 +11,7 @@ class AdminPageElements{
     }
     
     assertionConteiner(){
-        cy.get(conteinerSelector).should('include.text', 'Paul Collings')
+        cy.get(conteinerSelector).should('include.text', 'Admin')
     }
    
 }
