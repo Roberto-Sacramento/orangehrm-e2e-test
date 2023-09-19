@@ -1,4 +1,4 @@
-# HR Arange Automation
+# HR Orange Automation
 
 
 3- No terminal, rode o comando para instalar o Cypress e as demais dependências utilizadas neste repositório
