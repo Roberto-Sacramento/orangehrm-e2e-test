@@ -1,16 +1,5 @@
 # HR Orange Automation
 
-
-3- No terminal, rode o comando para instalar o Cypress e as demais dependências utilizadas neste repositório
-    npm install
-
-4- No terminal, rode o comando 
-    npx cypress open
-
-    Clique em E2E Testing > Start E2E Testin in Chrome > googleSearch.feature
-
-# ///////////////////////////////////////////////////////////////////////////////////////#
-
 # Installation process steps
 On linux ( debian)
 Install git - sudo apt instal git
