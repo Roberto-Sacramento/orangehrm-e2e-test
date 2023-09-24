@@ -14,16 +14,53 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
+import '@shelex/cypress-allure-plugin';
+import PimElements from './elements/pimElements';
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+const pimElements = new PimElements();
+const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+// class generateData{
+// // Alternatively you can use CommonJS syntax:
+// // require('./commands')
 
-beforeEach('Starting loging...',() =>{
+// // program to generate random strings
+
+// // declare all characters
+
+// generateString(length) {
+//     let result = ' ';
+//     const charactersLength = characters.length;
+//     for ( let i = 0; i < length; i++ ) {
+//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//     }
+
+//     return result;
+// }
+// }
+
+beforeEach('Starting loging...', () =>{
     cy.visit('/');
     cy.get('.oxd-button', { timeout: 10000 }).should('be.visible');
     cy.get('[name="username"]').type('Admin');
     cy.get('[name="password"]').type('admin123');
     cy.get('.oxd-button').click();
     cy.title().should('eq', 'OrangeHRM');
+});
+
+beforeEach('@CreationOfUser', () =>{
+    
+    cy.contains('PIM').click();
+    cy.get('.oxd-button > .oxd-icon').click();
+    cy.get('[name="firstName"]').type('Virgulino');
+    cy.get('[name="middleName"]').type('Ferreira');
+    cy.get('[name="lastName"]').type('Da Silva');
+    cy.get('.oxd-switch-input').click();
+    cy.get(':nth-child(4) > .oxd-grid-2 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Virgulino');
+    cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
+    cy.get('.oxd-grid-2 > :nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
+    cy.get('.oxd-button--secondary ').click();
+    cy.get('[id="oxd-toaster_1"]', { timeout: 10000 }).should('be.visible');
+    cy.get('[id="oxd-toaster_1"]').should('include.text','Successfully Saved');
+
 });

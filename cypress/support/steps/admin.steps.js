@@ -18,5 +18,12 @@ When('I search a {string}', async (userName) =>{
 Then('I should see the employee name', async() =>{
    adminPageElements.assertionConteiner();
     
+});
+
+Given('I accessed Admin page', async () => {
+   sidePainelcomponent.clickOnAdmin();
 })
 
+When('I selected user by role {string}', async (userRole)=>{
+   adminPageElements.selectUserByRole(userRole);
+})
