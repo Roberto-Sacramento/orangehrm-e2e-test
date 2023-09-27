@@ -17,29 +17,11 @@
 import './commands';
 import '@shelex/cypress-allure-plugin';
 import PimElements from './elements/pimElements';
+import ToastMessages from './utils/messages.component';
 
 const pimElements = new PimElements();
-const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-// class generateData{
-// // Alternatively you can use CommonJS syntax:
-// // require('./commands')
-
-// // program to generate random strings
-
-// // declare all characters
-
-// generateString(length) {
-//     let result = ' ';
-//     const charactersLength = characters.length;
-//     for ( let i = 0; i < length; i++ ) {
-//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//     }
-
-//     return result;
-// }
-// }
-
-beforeEach('Starting loging...', () =>{
+const toastMessages = new ToastMessages();
+before('Starting loging...', () =>{
     cy.visit('/');
     cy.get('.oxd-button', { timeout: 10000 }).should('be.visible');
     cy.get('[name="username"]').type('Admin');
@@ -48,15 +30,15 @@ beforeEach('Starting loging...', () =>{
     cy.title().should('eq', 'OrangeHRM');
 });
 
-beforeEach('@CreationOfUser', () =>{
+before('@CreationOfUser', () =>{
     
-    cy.contains('PIM').click();
+    cy.get(':nth-child(2) > .oxd-main-menu-item').click();
     cy.get('.oxd-button > .oxd-icon').click();
-    cy.get('[name="firstName"]').type('Virgulino');
+    cy.get('[name="firstName"]').type('Virgulino2');
     cy.get('[name="middleName"]').type('Ferreira');
     cy.get('[name="lastName"]').type('Da Silva');
     cy.get('.oxd-switch-input').click();
-    cy.get(':nth-child(4) > .oxd-grid-2 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Virgulino');
+    cy.get(':nth-child(4) > .oxd-grid-2 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Virgulino2');
     cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
     cy.get('.oxd-grid-2 > :nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
     cy.get('.oxd-button--secondary ').click();
@@ -64,3 +46,15 @@ beforeEach('@CreationOfUser', () =>{
     cy.get('[id="oxd-toaster_1"]').should('include.text','Successfully Saved');
 
 });
+
+after('After all tests done', () => {
+    cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').click();
+    cy.get(':nth-child(2) > .oxd-input').type('Virgulino2');
+    cy.get(':nth-child(2) > .oxd-input').type('{enter}', {force: true});
+    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon', { timeout: 10000 }).should('be.visible');
+    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon').click();
+    cy.get('.oxd-button--label-danger').click();
+    toastMessages.DeletedMessage();
+    toastMessages.InfoMessage();
+
+})

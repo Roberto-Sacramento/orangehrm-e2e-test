@@ -1,19 +1,11 @@
 Feature: Admin page
 
-    Scenario Outline: Searching a user
+    Scenario Outline: Searching a user by username
         Given I accessed Admin page
-        When I search a '<userName>'
-        Then I should see the employee name
+        When I search a by username '<userName>'
+        Then I should see the employee name '<employeeName>'
         Examples:
-            | userName | employeeName| 
-            | Virgulino| Virgulino   | 
+            | userName  | employeeName | 
+            | Virgulino2| Virgulino2   | 
 
-    @CreationOfUser
-    Scenario Outline: Update a user
-    Scenario Outline: Searching an user by role
-        Given I accessed Admin page
-        When I selected user by role '<userRole>'
-        #Then I should see the user role selected
-        Examples:
-            | userRole| 
-            | ESS     |
+    

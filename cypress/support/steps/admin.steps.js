@@ -10,13 +10,13 @@ Given('I accessed Admin page', async () => {
     sidePainelcomponent.clickOnAdmin();
 })
 
-When('I search a {string}', async (userName) =>{
+When('I search a by username {string}', async (userName) =>{
    cy.get(adminPageElements.searchUserName()).type(userName);
    cy.get(adminPageElements.searchUserName()).type('{enter}', {force: true})
 })
 
-Then('I should see the employee name', async() =>{
-   adminPageElements.assertionConteiner();
+Then('I should see the employee name {string}', async(employeeName) =>{
+   adminPageElements.assertionConteiner(employeeName);
     
 });
 
