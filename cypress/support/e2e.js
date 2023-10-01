@@ -42,7 +42,7 @@ before('@CreationOfUser', () =>{
     cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
     cy.get('.oxd-grid-2 > :nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('virg123');
     cy.get('.oxd-button--secondary ').click();
-    cy.get('[id="oxd-toaster_1"]', { timeout: 10000 }).should('be.visible');
+    cy.get('[id="oxd-toaster_1"]', { timeout: 12000 }).should('be.visible');
     cy.get('[id="oxd-toaster_1"]').should('include.text','Successfully Saved');
 
 });
@@ -51,8 +51,8 @@ after('After all tests done', () => {
     cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').click();
     cy.get(':nth-child(2) > .oxd-input').type('Virgulino2');
     cy.get(':nth-child(2) > .oxd-input').type('{enter}', {force: true});
-    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon', { timeout: 120000 }).should('be.visible');
-    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon').click();
+    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon', { timeout:2000 }).should('be.visible');
+    cy.get(':nth-child(1) > .oxd-icon').click();
     cy.get('.oxd-button--label-danger').click();
     toastMessages.DeletedMessage();
     toastMessages.InfoMessage();
