@@ -1,8 +1,0 @@
-{
-    "baseUrl": "https://opensource-demo.orangehrmlive.com/web/",
-    "viewportWidth": 1920,
-    "viewportHeight": 1080,
-    "video": true,
-    "screenshots": "cypress/screenshots",
-    "videosFolder": "cypress/videos"
-  }
