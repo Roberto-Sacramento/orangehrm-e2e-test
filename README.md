@@ -1,6 +1,4 @@
-# HR Arange Automation
-
-# ///////////////////////////////////////////////////////////////////////////////////////#
+# HR Orange Automation
 
 # Installation process steps
 On linux ( debian)
@@ -16,5 +14,3 @@ git config --global user.email " email account"
 
 2- install cucumber processor - npm install --save-dev cypress-cucumber-preprocessor
 Observation: if cypress is not installed you will need type the following command: cypress install
-
-
