@@ -15,9 +15,7 @@ class PimElements{
         cy.get(lastNameSelector).type(lastName);
 
     }
-    messageSuccess(){
-        cy.get(successMessage).should('include.text','Successfully Saved');
-    }
+    
 
 }
 

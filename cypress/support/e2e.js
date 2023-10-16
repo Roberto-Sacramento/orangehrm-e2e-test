@@ -18,9 +18,16 @@ import './commands';
 import '@shelex/cypress-allure-plugin';
 import PimElements from './elements/pimElements';
 import ToastMessages from './utils/messages.component';
+import generatorString from './utils/generatorString';
+
 
 const pimElements = new PimElements();
 const toastMessages = new ToastMessages();
+//const grtString = new generatorString();
+const deleteButton = '.orangehrm-horizontal-padding > div > .oxd-button';
+const deletePopupButton = '.oxd-button--label-danger';
+const checkBoxSelector = '.oxd-table-card-cell-checkbox > .oxd-checkbox-wrapper > label > .oxd-checkbox-input > .oxd-icon';
+
 before('Starting loging...', () =>{
     cy.visit('/');
     cy.get('.oxd-button', { timeout: 10000 }).should('be.visible');
@@ -28,12 +35,14 @@ before('Starting loging...', () =>{
     cy.get('[name="password"]').type('admin123');
     cy.get('.oxd-button').click();
     cy.title().should('eq', 'OrangeHRM');
+    
 });
 
-before('@CreationOfUser', () =>{
+before('Creation Of User', () =>{
     
-    cy.get(':nth-child(2) > .oxd-main-menu-item').click();
-    cy.get('.oxd-button > .oxd-icon').click();
+    cy.get(':nth-child(2) > .oxd-main-menu-item > .oxd-text').click();
+    cy.get('.orangehrm-header-container > .oxd-button', { timeout: 10000 }).should('be.visible');
+    cy.get('.orangehrm-header-container > .oxd-button').click();
     cy.get('[name="firstName"]').type('Virgulino2');
     cy.get('[name="middleName"]').type('Ferreira');
     cy.get('[name="lastName"]').type('Da Silva');
@@ -47,13 +56,13 @@ before('@CreationOfUser', () =>{
 
 });
 
-after('After all tests done', () => {
-    cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').click();
+after('Deleting user....', () => {
+    cy.get(':nth-child(1) > .oxd-main-menu-item ').click();
     cy.get(':nth-child(2) > .oxd-input').type('Virgulino2');
     cy.get(':nth-child(2) > .oxd-input').type('{enter}', {force: true});
-    cy.get('.oxd-table-cell-actions > :nth-child(1) > .oxd-icon', { timeout:2000 }).should('be.visible');
-    cy.get(':nth-child(1) > .oxd-icon').click();
-    cy.get('.oxd-button--label-danger').click();
+    cy.get(checkBoxSelector).click();
+    cy.get('.oxd-table-cell-actions > :nth-child(1)').click();
+    cy.contains('Yes, Delete').click();
     toastMessages.DeletedMessage();
     toastMessages.InfoMessage();
 
