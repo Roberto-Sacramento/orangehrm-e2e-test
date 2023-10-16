@@ -9,6 +9,7 @@ const sidePainelcomponent = new SidePainelcomponent()
 const pimElements = new PimElements();
 const toastMessages = new ToastMessages();
 
+
 Given('I accessed PIM page', () =>{
     sidePainelcomponent.clickOnPIM();
 });
