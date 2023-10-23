@@ -1,8 +1,9 @@
 
 const userNameSelector = ':nth-child(2) > .oxd-input';
 const conteinerSelector =  '.orangehrm-container';
-const userRolerSelector = ':nth-child(2) > .oxd-input-group  '; 
 const deleteIcon = '.oxd-table-cell-actions > :nth-child(1) > .oxd-icon';
+const penIconSelector = '.oxd-icon bi-pencil-fill'
+const userRoleSelector = '.oxd-select-text oxd-select-text--active'
 
 class AdminPageElements{
 
@@ -10,13 +11,22 @@ class AdminPageElements{
     searchUserName(){
         return userNameSelector;
     }
-    selectUserByRole(userRole){
-        cy.get(userRolerSelector).select(userRole);
+
+    clickOnPencil(){
+        cy.get(penIconSelector).click();
+    }
+
+
+    //static dropdown
+    selectUserByRole(){
+        cy.get(userRoleSelector).select('ESS').should('have.value', '0');
     }
     
     assertionConteiner(){
         cy.get(conteinerSelector).should('include.text', 'Virgulino');
     }
+
+
    
 }
 
