@@ -18,7 +18,7 @@ And('I click on Add button', async() =>{
     pimPage.clickOnAddButton();
 });
 
-And('I fill the fields {string}, {string}, {string}', (firstName, middleName, lastName) =>{
+And(/I fill the fields '(.+)', '(.+)', '(.+)'/, (firstName, middleName, lastName) =>{
     pimElements.fillEmployeeIData(firstName, middleName, lastName);
 
 });
