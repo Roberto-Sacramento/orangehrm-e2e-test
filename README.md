@@ -1,6 +1,6 @@
 # HR Orange Automation
 
-# Installation process steps
+# Installation proccess steps
 On linux ( debian)
 Install git - sudo apt instal git
 install node - sudo apt install nodejs npm -y   
