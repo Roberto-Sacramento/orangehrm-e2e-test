@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.0",
-    "cypress": "^13.2.0",
+    "cypress": "^13.17.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "cypress-cucumber-preprocessor": {
